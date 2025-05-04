@@ -5,15 +5,21 @@ You will be shown:
 - Two responses to that post (r1 and r2)
 
 Your task is to:
+- First, choose which response is more persuasive ("r1" or "r2")
 - Score features of the **original post**
 - Score features of **each response**
-- Decide which response is more persuasive overall
+
+Please always give your final answer first. 
 
 All scores should be in the range 0.0 to 1.0, **unless otherwise noted**. Return a strictly valid JSON object matching the feature order below.
 
 ---
+## 1. ANSWER WHICH IS MORE PERSUASIVE
 
-## 1. ORIGINAL POST FEATURES
+Choose which response is more persuasive overall, "r1" or "r2". 
+---
+
+## 2. ORIGINAL POST FEATURES
 
 These are scored **once** per post (not per response).
 
@@ -23,7 +29,7 @@ These are scored **once** per post (not per response).
 
 ---
 
-## 2. RESPONSE FEATURES
+## 3. RESPONSE FEATURES
 
 These are scored **separately** for Response 1 and Response 2.
 
@@ -47,18 +53,13 @@ These are scored **separately** for Response 1 and Response 2.
 
 ---
 
-## 3. FINAL TASK
-
-Choose which response is more persuasive overall, "r1" or "r2". 
-
----
-
 ## OUTPUT FORMAT
 
 Return a **strictly valid JSON object** using the following structure and ordering:
 
 ```json
 {
+  "more_persuasive": "r1",
   "scores": {
     "original_post": {
       "malleability": 0.0,
@@ -86,6 +87,6 @@ Return a **strictly valid JSON object** using the following structure and orderi
       "anecdote": 0.0,
       "concession": 0.0
     }
-  },
-  "more_persuasive": "r1"
+  }
 }
+
